@@ -1,0 +1,15 @@
+node_modules
+./dist-test
+./coverage
+./test
+./perf
+./chore
+./src-alt
+./alt
+.DS_Store
+.eslintignore
+.gitignore
+.prettierignore
+yarn-error.log
+yarn.lock
+*.heapsnapshot

@@ -1,0 +1,46 @@
+const memoize = require("../dist/memoize");
+const sinon = require("sinon");
+const chai = require("chai");
+
+describe("memoize", () => {
+  it(`should work with case 04`, () => {
+    const spy = sinon.spy(array => array[0]);
+    const fn = memoize(spy);
+    chai.expect(fn([NaN])).to.be.NaN;
+    chai.expect(spy.callCount).to.equal(1);
+    chai.expect(fn([null])).to.be.null;
+    chai.expect(spy.callCount).to.equal(2);
+    chai.expect(fn([null])).to.be.null;
+    chai.expect(spy.callCount).to.equal(2);
+    chai.expect(fn([NaN])).to.be.NaN;
+    chai.expect(spy.callCount).to.equal(2);
+    chai.expect(fn([Infinity])).to.equal(Infinity);
+    chai.expect(spy.callCount).to.equal(3);
+    chai.expect(fn([NaN])).to.be.NaN;
+    chai.expect(spy.callCount).to.equal(3);
+    chai.expect(fn([undefined])).to.be.undefined;
+    chai.expect(spy.callCount).to.equal(4);
+    chai.expect(fn([Infinity])).to.equal(Infinity);
+    chai.expect(spy.callCount).to.equal(4);
+    chai.expect(fn([null])).to.be.null;
+    chai.expect(spy.callCount).to.equal(4);
+    chai.expect(fn([0])).to.equal(0);
+    chai.expect(spy.callCount).to.equal(5);
+    chai.expect(fn([""])).to.equal("");
+    chai.expect(spy.callCount).to.equal(6);
+    chai.expect(fn(["false"])).to.equal("false");
+    chai.expect(spy.callCount).to.equal(7);
+    chai.expect(fn(["null"])).to.equal("null");
+    chai.expect(spy.callCount).to.equal(8);
+    chai.expect(fn(["NaN"])).to.equal("NaN");
+    chai.expect(spy.callCount).to.equal(9);
+    chai.expect(fn(["Infinity"])).to.equal("Infinity");
+    chai.expect(spy.callCount).to.equal(10);
+    chai.expect(fn(["0"])).to.equal("0");
+    chai.expect(spy.callCount).to.equal(11);
+    chai.expect(fn(["NaN"])).to.equal("NaN");
+    chai.expect(spy.callCount).to.equal(11);
+    chai.expect(fn(["null"])).to.equal("null");
+    chai.expect(spy.callCount).to.equal(11);
+  });
+});
