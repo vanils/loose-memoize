@@ -4,11 +4,16 @@ const chai = require("chai");
 
 const getObject = difference => {
   return {
-    array: [1, '2', null, {
-      number: 1,
-      string: '3',
-      difference
-    }]
+    array: [
+      1,
+      "2",
+      null,
+      {
+        number: 1,
+        string: "3",
+        difference
+      }
+    ]
   };
 };
 

@@ -27,7 +27,13 @@ var handleArray = function(value, stack, strictPropertyOrder, isSeen, propKey) {
    */
   while (i--) {
     string +=
-      handleValue(value[i], stack, strictPropertyOrder, nextIsSeen, propKey + '.' + i) + ",";
+      handleValue(
+        value[i],
+        stack,
+        strictPropertyOrder,
+        nextIsSeen,
+        propKey + "." + i
+      ) + ",";
   }
 
   return string;

@@ -4,11 +4,16 @@ const chai = require("chai");
 
 const getObject = difference => {
   return {
-    array: [1, '2', null, {
-      number: 1,
-      string: '3',
-      difference
-    }]
+    array: [
+      1,
+      "2",
+      null,
+      {
+        number: 1,
+        string: "3",
+        difference
+      }
+    ]
   };
 };
 
@@ -19,8 +24,8 @@ describe("memoize", () => {
 
     const symbol1 = Symbol();
     const symbol2 = Symbol();
-    const symbol3 = Symbol('labelled');
-    const symbol4 = Symbol('labelled');
+    const symbol3 = Symbol("labelled");
+    const symbol4 = Symbol("labelled");
 
     chai.expect(fn(getObject(symbol1))).to.equal(symbol1);
     chai.expect(fn(getObject(symbol1))).to.equal(symbol1);

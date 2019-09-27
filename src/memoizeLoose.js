@@ -1,6 +1,5 @@
-import toFixedSize from './util/toFixedSize';
+import toFixedSize from "./util/toFixedSize";
 import serializer from "./serializer";
-
 
 /**
  * Memoize using loose serializer.
@@ -17,8 +16,8 @@ var memoizeLoose = function(fn, opt) {
   var strictPropertyOrder = (opt && opt.strictPropertyOrder) || false;
   var getKey = serializer(strictPropertyOrder);
   var cache = Object.create(null);
-  var argCount = (opt && opt.argCount);
-  var argCountRestricted = typeof argCount === 'number';
+  var argCount = opt && opt.argCount;
+  var argCountRestricted = typeof argCount === "number";
   return function() {
     var i = argCountRestricted ? argCount : arguments.length;
     var key = "";

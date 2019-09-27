@@ -1,4 +1,4 @@
-import toStringValue from '../util/toStringValue';
+import toStringValue from "../util/toStringValue";
 import toReference from "../util/toReference";
 import handleArray from "./handleArray";
 import handleObject from "./handleObject";
@@ -21,7 +21,7 @@ var handleValue = function(value, stack, strictPropertyOrder, isSeen, propKey) {
   var type;
 
   if (value === null) {
-    return 'null';
+    return "null";
   }
 
   if (isSeen && isSeen(value)) {
@@ -31,14 +31,14 @@ var handleValue = function(value, stack, strictPropertyOrder, isSeen, propKey) {
   var type = typeof value;
 
   switch (type) {
-    case 'undefined':
-    case 'number':
-    case 'boolean':
+    case "undefined":
+    case "number":
+    case "boolean":
       return String(value);
-    case 'string':
+    case "string":
       return toStringValue(value);
-    case 'symbol':
-    case 'function':
+    case "symbol":
+    case "function":
       return "[" + type + toReference(value, type, stack) + "]";
     default:
       type = Object.prototype.toString.call(value);

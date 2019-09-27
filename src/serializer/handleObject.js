@@ -1,4 +1,4 @@
-import toStringValue from '../util/toStringValue';
+import toStringValue from "../util/toStringValue";
 import handleValue from "./handleValue";
 
 /**
@@ -13,7 +13,13 @@ import handleValue from "./handleValue";
  *   before in a property chain. This protects against circular references.
  * @return {string} serialized string
  */
-var handleObject = function(value, stack, strictPropertyOrder, isSeen, propKey) {
+var handleObject = function(
+  value,
+  stack,
+  strictPropertyOrder,
+  isSeen,
+  propKey
+) {
   var nextIsSeen = function(nextValue) {
     return value === nextValue || (isSeen && isSeen(nextValue));
   };
@@ -43,7 +49,11 @@ var handleObjectLoose = function(value, stack, isSeen, propKey) {
 
   while (i--) {
     key = keys[i];
-    string += toStringValue(key) + ":" + handleValue(value[key], stack, false, isSeen, propKey + '.' + key) + ",";
+    string +=
+      toStringValue(key) +
+      ":" +
+      handleValue(value[key], stack, false, isSeen, propKey + "." + key) +
+      ",";
   }
 
   return string;
@@ -65,7 +75,11 @@ var handleObjectStrict = function(value, stack, isSeen, propKey) {
 
   for (var key in value) {
     if (value.hasOwnProperty(key)) {
-      string += toStringValue(key) + ":" + handleValue(value[key], stack, true, isSeen, propKey + '.' + key) + ",";
+      string +=
+        toStringValue(key) +
+        ":" +
+        handleValue(value[key], stack, true, isSeen, propKey + "." + key) +
+        ",";
     }
   }
 

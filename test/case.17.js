@@ -9,12 +9,12 @@ describe("memoize", () => {
 
     const fn1 = () => {};
     const fn2 = () => {};
-    const fn3 = function () {};
-    const fn4 = function () {
+    const fn3 = function() {};
+    const fn4 = function() {
       // something
     };
-    const fn5 = function (value) {
-      return value
+    const fn5 = function(value) {
+      return value;
     };
     chai.expect(fn(fn1)).to.equal(fn1);
     chai.expect(spy.callCount).to.equal(1);

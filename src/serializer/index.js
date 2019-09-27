@@ -19,7 +19,7 @@ var serializer = function(strictPropertyOrder) {
    * @return {string} string representing original value
    */
   return function(value) {
-    return handleValue(value, stack, strictPropertyOrder, null, '');
+    return handleValue(value, stack, strictPropertyOrder, null, "");
   };
 };
 

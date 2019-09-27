@@ -26,9 +26,7 @@ const getAcceptanceTest = (
      * Too many calls is less severe than too less calls
      */
     if (spy.callCount > callCount) {
-      return `Warning: Expected ${callCount} calls on memoized method. Got ${
-        spy.callCount
-      }.`;
+      return `Warning: Expected ${callCount} calls on memoized method. Got ${spy.callCount}.`;
     }
 
     /*

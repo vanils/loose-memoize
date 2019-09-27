@@ -40,7 +40,8 @@ yargs.command(
         choices: allTestSubjects.map(data => data.id)
       })
       .option("alternative", {
-        describe: "Include alternative version of loose-memoize (for development)",
+        describe:
+          "Include alternative version of loose-memoize (for development)",
         type: "boolean",
         default: false
       })
@@ -62,7 +63,8 @@ yargs.command(
       ? argv.testSubjects.map(id =>
           allTestSubjects.find(data => data.id === id)
         )
-      : allTestSubjects).concat(getSpecialCases(argv.alternative, argv.strict));
+      : allTestSubjects
+    ).concat(getSpecialCases(argv.alternative, argv.strict));
 
     return selectedTestCases
       .reduce((chain, testCase) => {
