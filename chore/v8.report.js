@@ -1,10 +1,13 @@
-
 const memoize = require("../dist/memoize");
 const fn = memoize(value => value);
 
 const getNumericValues = () => {
-  return [].concat([ 0, 1, -1, NaN, Infinity, -Infinity ]
-    .map(value => [ value, new Number(value) ]));
+  return [].concat(
+    [0, 1, -1, NaN, Infinity, -Infinity].map(value => [
+      value,
+      new Number(value)
+    ])
+  );
 };
 
 const getRegexValues = () => {
@@ -34,34 +37,27 @@ const getIndexedValues = () => {
 };
 
 const getFunctionValues = () => {
-  return [
-    () => {},
-    function () {}
-  ];
+  return [() => {}, function() {}];
 };
 
 class CustomClass {
-  constructor () {
+  constructor() {
     this.ownProperty = true;
   }
-};
+}
 
-const CustomObject = function () {
+const CustomObject = function() {
   this.ownProperty = true;
 };
 
 CustomObject.prototype.notOwnProperty = true;
 
 const getObjectValues = () => {
-  return [
-    new CustomObject(),
-    new CustomClass(),
-    {}
-  ];
+  return [new CustomObject(), new CustomClass(), {}];
 };
 
-const symbol1 = Symbol('a');
-const symbol2 = Symbol('a');
+const symbol1 = Symbol("a");
+const symbol2 = Symbol("a");
 const symbol3 = Symbol();
 const symbol4 = Symbol();
 
@@ -76,7 +72,6 @@ const invoke = (arg1, arg2, arg3) => {
 };
 
 const toProps = value => {
-
   const circular = {
     array: [value],
     object: {
@@ -93,24 +88,23 @@ const toProps = value => {
     value,
     { value },
     { prop: { value } },
-    { prop: [ value ] },
-    { prop: [ { value } ] },
+    { prop: [value] },
+    { prop: [{ value }] },
     circular
   ];
 };
 
 for (let i = 0, j = 10; i < j; i++) {
-
   const valueGroups = [
-      getNumericValues(),
-      getRegexValues(),
-      getSymbolValues(),
-      getDateValues(),
-      getIndexedValues(),
-      getObjectValues(),
-      getBooleanValues(),
-      getFunctionValues()
-    ]
+    getNumericValues(),
+    getRegexValues(),
+    getSymbolValues(),
+    getDateValues(),
+    getIndexedValues(),
+    getObjectValues(),
+    getBooleanValues(),
+    getFunctionValues()
+  ]
     .map(valueGroup => {
       return Array.prototype.concat.apply(toProps(valueGroup));
     })
@@ -122,13 +116,13 @@ for (let i = 0, j = 10; i < j; i++) {
 }
 
 function myFunc(nb) {
-    return nb + nb;
+  return nb + nb;
 }
 
 for (let i = 0; i < 2000; ++i) {
-    myFunc(i);
+  myFunc(i);
 }
 
 for (let i = 0; i < 2000; ++i) {
-    myFunc(i + '');
+  myFunc(i + "");
 }

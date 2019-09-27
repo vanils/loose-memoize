@@ -1,6 +1,5 @@
-import toFixedSize from './util/toFixedSize';
+import toFixedSize from "./util/toFixedSize";
 import referencer from "./referencer";
-
 
 /**
  * Memoize using strict value comparison.
@@ -14,14 +13,14 @@ import referencer from "./referencer";
 var memoizeStrict = function(fn, opt) {
   var cache = Object.create(null);
   var getKey = referencer();
-  var argCount = (opt && opt.argCount);
-  var argCountRestricted = typeof argCount === 'number';
+  var argCount = opt && opt.argCount;
+  var argCountRestricted = typeof argCount === "number";
   return function() {
     var i = argCountRestricted ? argCount : arguments.length;
-    var key = '';
+    var key = "";
 
     while (i--) {
-      key += getKey(arguments[i]) + ',';
+      key += getKey(arguments[i]) + ",";
     }
 
     if (typeof cache[key] === "undefined" && !(key in cache)) {

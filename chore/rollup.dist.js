@@ -18,7 +18,7 @@ const altPackage = !fs.pathExistsSync(altPath)
         },
         plugins: [resolve()]
       }
-    ]
+    ];
 
 module.exports = altPackage.concat([
   {

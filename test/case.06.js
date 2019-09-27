@@ -8,8 +8,8 @@ describe("memoize", () => {
     const fn = memoize(spy);
     const symbol1 = Symbol();
     const symbol2 = Symbol();
-    const symbol3 = Symbol('labelled');
-    const symbol4 = Symbol('labelled');
+    const symbol3 = Symbol("labelled");
+    const symbol4 = Symbol("labelled");
 
     chai.expect(fn([symbol1])).to.equal(symbol1);
     chai.expect(fn([symbol1])).to.equal(symbol1);

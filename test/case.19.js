@@ -10,14 +10,14 @@ describe("memoize", () => {
     chai.expect(spy.callCount).to.equal(1);
     chai.expect(fn()).to.be.undefined;
     chai.expect(spy.callCount).to.equal(2);
-    chai.expect(fn('1', undefined)).to.equal('1');
+    chai.expect(fn("1", undefined)).to.equal("1");
     chai.expect(spy.callCount).to.equal(3);
-    chai.expect(fn('1')).to.equal('1');
+    chai.expect(fn("1")).to.equal("1");
     chai.expect(spy.callCount).to.equal(4);
     chai.expect(fn(undefined)).to.be.undefined;
     chai.expect(fn()).to.be.undefined;
-    chai.expect(fn('1', undefined)).to.equal('1');
-    chai.expect(fn('1')).to.equal('1');
+    chai.expect(fn("1", undefined)).to.equal("1");
+    chai.expect(fn("1")).to.equal("1");
     chai.expect(spy.callCount).to.equal(4);
   });
   it(`should work with case 19 (b)`, () => {
@@ -29,14 +29,14 @@ describe("memoize", () => {
     chai.expect(spy.callCount).to.equal(1);
     chai.expect(fn()).to.be.undefined;
     chai.expect(spy.callCount).to.equal(1);
-    chai.expect(fn('1', undefined)).to.equal('1');
+    chai.expect(fn("1", undefined)).to.equal("1");
     chai.expect(spy.callCount).to.equal(2);
-    chai.expect(fn('1')).to.equal('1');
+    chai.expect(fn("1")).to.equal("1");
     chai.expect(spy.callCount).to.equal(2);
     chai.expect(fn(undefined)).to.be.undefined;
     chai.expect(fn()).to.be.undefined;
-    chai.expect(fn('1', undefined)).to.equal('1');
-    chai.expect(fn('1')).to.equal('1');
+    chai.expect(fn("1", undefined)).to.equal("1");
+    chai.expect(fn("1")).to.equal("1");
     chai.expect(spy.callCount).to.equal(2);
   });
   it(`should work with case 19 (c)`, () => {

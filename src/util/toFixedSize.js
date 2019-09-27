@@ -1,4 +1,3 @@
-
 /**
  * Force array (or array like object) to have fixed length.
  *
@@ -6,7 +5,7 @@
  * @param {number} size - Fixed size of the resulting array.
  * @return {Array} array with fixed size.
  */
-var toFixedSize = function (array, size) {
+var toFixedSize = function(array, size) {
   var newArray;
   var i;
 

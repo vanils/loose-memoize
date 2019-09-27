@@ -1,6 +1,5 @@
-
-import memoizeLoose from './memoizeLoose';
-import memoizeStrict from './memoizeStrict';
+import memoizeLoose from "./memoizeLoose";
+import memoizeStrict from "./memoizeStrict";
 
 /**
  * Apply function to memoize and options. Get memoized version of original
@@ -17,9 +16,7 @@ import memoizeStrict from './memoizeStrict';
  * @return {function} memoized function
  */
 var memoize = function(fn, opt) {
-  return (opt && opt.strict)
-    ? memoizeStrict(fn, opt)
-    : memoizeLoose(fn, opt);
+  return opt && opt.strict ? memoizeStrict(fn, opt) : memoizeLoose(fn, opt);
 };
 
 export default memoize;

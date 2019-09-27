@@ -1,4 +1,4 @@
-import toStringValue from '../util/toStringValue';
+import toStringValue from "../util/toStringValue";
 import toReference from "../util/toReference";
 
 /**
@@ -19,25 +19,28 @@ var referencer = function() {
    * @return {string} string representing original value
    */
   return function(value) {
-
     if (value === null) {
-      return 'null';
+      return "null";
     }
 
     var type = typeof value;
 
     switch (type) {
-      case 'undefined':
-      case 'number':
-      case 'boolean':
-        return String(value)
-      case 'string':
+      case "undefined":
+      case "number":
+      case "boolean":
+        return String(value);
+      case "string":
         return toStringValue(value);
-      case 'symbol':
-      case 'function':
+      case "symbol":
+      case "function":
         return toReference(value, type, memory);
       default:
-        return toReference(value, Object.prototype.toString.call(value), memory);
+        return toReference(
+          value,
+          Object.prototype.toString.call(value),
+          memory
+        );
     }
   };
 };

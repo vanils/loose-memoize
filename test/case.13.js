@@ -2,13 +2,13 @@ const memoize = require("../dist/memoize");
 const sinon = require("sinon");
 const chai = require("chai");
 
-const CustomObject1 = function () {
+const CustomObject1 = function() {
   this.ownProperty = true;
 };
 
 CustomObject1.prototype.notOwnProperty = true;
 
-const CustomObject2 = function () {
+const CustomObject2 = function() {
   this.ownProperty = true;
 };
 
